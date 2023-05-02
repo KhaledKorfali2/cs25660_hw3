@@ -6,8 +6,15 @@
 // Constructor
 Employee::Employee(std::string name, std::string employeeNum, Date hireDate)
 {
+    if (isValidIDNum(employeeNum))
+    {
+        this->employeeNum = employeeNum;
+    }
+    else
+    {
+        throw std::invalid_argument(employeeNum + ": not valid employee id");
+    }
     this->name = name;
-    this->employeeNum = employeeNum;
     this->hireDate = hireDate;
 }
 
@@ -89,7 +96,7 @@ std::ostream& operator<<(std::ostream& os, const Employee& employee)
         << "EID: " << employee.getEmployeeNum() << "\n"
         << "Hire: " << employee.getHireDate().month << "/"
         << employee.getHireDate().day << "/"
-        << employee.getHireDate().year << "/" << std::endl;
+        << employee.getHireDate().year << std::endl;
     return os;
 }
 

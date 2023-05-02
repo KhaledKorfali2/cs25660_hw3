@@ -71,7 +71,7 @@ bool TeamLeader::meetsTrainingRequirements() const
 }
 
 std::ostream& operator<<(std::ostream& os, const TeamLeader& leader) {
-    os << static_cast<const ProductionWorker&>(leader)
+    os << static_cast<const ProductionWorker&>(leader) << "\n"
         << "Monthly Bonus: " << std::fixed << std::setprecision(2) << leader.getMonthlyBonus() << "\n"
         << "Required Training Hours: " << leader.getRequiredTrainingHours() << "\n"
         << "Training Hours Attended: " << leader.getAttendedTrainingHours();
