@@ -19,7 +19,7 @@ int main()
     ShiftSupervisor ss("Jane Doe", "456", { 1,1,2300 }, 50000.00, 1000.00);
     cout << ss << endl;
 
-
+    //
     cout << pw << ss << endl;
     return 0;
 }
