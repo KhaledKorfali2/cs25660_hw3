@@ -8,7 +8,7 @@
 ShiftSupervisor::ShiftSupervisor(std::string name, std::string employeeNumber, Date hireDate, double annualSalary, double annualProductionBonus)
     : Employee(name, employeeNumber, hireDate)
 {
-    if (annualSalary < 0.0)
+    /*if (annualSalary < 0.0)
     {
         throw std::invalid_argument("Annual salary cannot be negative");
     }
@@ -17,7 +17,10 @@ ShiftSupervisor::ShiftSupervisor(std::string name, std::string employeeNumber, D
         throw std::invalid_argument("Annual production bonus cannot be negative");
     }
     this->annualSalary = annualSalary;
-    this->annualProductionBonus = annualProductionBonus;
+    this->annualProductionBonus = annualProductionBonus;*/
+
+    setAnnualSalary(annualSalary);
+    setAnnualProductionBonus(annualProductionBonus);
 }
 
 // Accessor functions

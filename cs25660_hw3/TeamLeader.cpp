@@ -9,10 +9,14 @@
 TeamLeader::TeamLeader(std::string name, std::string employeeNumber, Date hireDate, int shift, double payRate,
     double monthlyBonus, int requiredTrainingHours, int attendedTrainingHours)
     : ProductionWorker(name, employeeNumber, hireDate, shift, payRate)
-{
+{/*
     this->monthlyBonus = monthlyBonus;
     this->requiredTrainingHours = requiredTrainingHours;
-    this->attendedTrainingHours = attendedTrainingHours;
+    this->attendedTrainingHours = attendedTrainingHours;*/
+
+    setMonthlyBonus(monthlyBonus);
+    setRequiredTrainingHours(requiredTrainingHours);
+    setAttendedTrainingHours(attendedTrainingHours);
 }
 
 // Accessor and mutator functions

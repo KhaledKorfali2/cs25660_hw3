@@ -6,14 +6,12 @@
 // Constructor
 Employee::Employee(std::string name, std::string employeeNum, Date hireDate)
 {
-    if (isValidIDNum(employeeNum))
-    {
-        this->employeeNum = employeeNum;
-    }
-    else
+    /*if (!isValidIDNum(employeeNum))
     {
         throw std::invalid_argument(employeeNum + ": not valid employee id");
     }
+    this->employeeNum = employeeNum;*/
+    setEmpyloyeeNum(employeeNum);
     this->name = name;
     this->hireDate = hireDate;
 }

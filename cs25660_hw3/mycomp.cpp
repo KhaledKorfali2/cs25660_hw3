@@ -18,7 +18,6 @@ int main()
     ProductionWorker aProductionWorker("John Smith", "002-B", {1, 2, 2001}, 1, 15.50);
     cout << aProductionWorker << endl << endl;
    
-
     ShiftSupervisor aShiftSupervisor("Jane Doe", "003-C", {1, 1, 2002}, 50000.00, 1000.00);
     cout << aShiftSupervisor << endl << endl;
 
