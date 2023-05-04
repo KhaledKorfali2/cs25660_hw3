@@ -12,7 +12,7 @@ private:
 public:
     // Constructors
     TeamLeader(std::string name = "", std::string employeeNumber = "000-O", Date hireDate = { 0,0,0 }, int shift = 1, double payRate = 0.0,
-        double monthlyBonus = 0.0, int requiredTrainingHours = 0, int attendedTrainingHours = 9);
+        double monthlyBonus = 0.0, int requiredTrainingHours = 0, int attendedTrainingHours = 0);
 
     // Accessor functions
     double getMonthlyBonus() const;
