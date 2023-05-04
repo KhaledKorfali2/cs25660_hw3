@@ -11,7 +11,7 @@ private:
 
 public:
     // Constructor
-    ShiftSupervisor(std::string name = "", std::string employeeNumber = "", Date hireDate = { 0,0,0 }, double annualSalary = 0.0, double annualProductionBonus = 0.0);
+    ShiftSupervisor(std::string name = "", std::string employeeNumber = "000-O", Date hireDate = { 0,0,0 }, double annualSalary = 0.0, double annualProductionBonus = 0.0);
 
     // Accessor functions
     double getAnnualSalary() const;

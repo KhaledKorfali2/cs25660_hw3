@@ -20,7 +20,7 @@ private:
 	bool isValidIDNum(std::string employeeNum);
 public:
 	// Constructor
-	Employee(std::string name = "", std::string employeeNum = "", Date hireDate = {0,0,0});
+	Employee(std::string name = "", std::string employeeNum = "000 - O", Date hireDate = {0,0,0});
 	
 	// Getters
 	std::string getName() const;

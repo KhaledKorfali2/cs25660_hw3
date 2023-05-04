@@ -11,8 +11,8 @@ private:
     int attendedTrainingHours;
 public:
     // Constructors
-    TeamLeader(std::string name, std::string employeeNumber, Date hireDate, int shift, double payRate,
-        double monthlyBonus, int requiredTrainingHours, int attendedTrainingHours);
+    TeamLeader(std::string name = "", std::string employeeNumber = "000-O", Date hireDate = { 0,0,0 }, int shift = 1, double payRate = 0.0,
+        double monthlyBonus = 0.0, int requiredTrainingHours = 0, int attendedTrainingHours = 9);
 
     // Accessor functions
     double getMonthlyBonus() const;

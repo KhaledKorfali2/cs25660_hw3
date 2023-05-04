@@ -10,7 +10,7 @@ private:
 	int shift;
 	double hourlyPayRate;
 public:
-	ProductionWorker(std::string name = "", std::string employeeNumber = "", Date hireDate = { 0,0,0 }, int shift = 0, double hourlyPayRate = 0.0);
+	ProductionWorker(std::string name = "", std::string employeeNumber = "000-O", Date hireDate = { 0,0,0 }, int shift = 1, double hourlyPayRate = 0.0);
 	int getShift() const;
 	double getHourlyPayRate() const;
 
