@@ -20,9 +20,9 @@ int main()
 
     cout << "Do you want to enter in a new" << endl;
     cout << "1) Employee" << endl;
-    cout << "2) ProductionWorker" << endl;
-    cout << "3) ShiftSupervisor" << endl;
-    cout << "4) TeamLeader" << endl;
+    cout << "2) Production Worker" << endl;
+    cout << "3) Shift Supervisor" << endl;
+    cout << "4) Team Leader" << endl;
     cout << "Please enter 1, 2, 3, or 4 to choose: ";
     cin >> employeeType;
 
@@ -31,14 +31,14 @@ int main()
         Employee aEmployee;
 
         cout << "Please enter the employee's name: ";
-        cin >> name;
+        getline(cin >> ws, name);
         aEmployee.setName(name);
 
-        cout << "Please enter the employee's EID (###-L where # are integers and L is uppercase letter):";
+        cout << "Please enter " << name << " 's EID (###-L where # are integers and L is uppercase letter): ";
         cin >> employeeNum;
         aEmployee.setEmpyloyeeNum(employeeNum);
 
-        cout << "Please enter the hire date for " << name << ". (month day year seperated by spaces):";
+        cout << "Please enter the date that " << name << " was hired (month day year): ";
         cin >> hireDate.month >> hireDate.day >> hireDate.year;
         aEmployee.setHireDate(hireDate);
 
@@ -50,15 +50,15 @@ int main()
         int shift;
         double hourlyPayRate;
 
-        cout << "Please enter the production worker's name: ";
-        cin >> name;
+        cout << "Please enter the employee's name: ";
+        getline(cin >> ws, name);
         aProductionWorker.setName(name);
 
-        cout << "Please enter the production worker's EID (###-L where # are integers and L is uppercase letter):";
+        cout << "Please enter " << name << " 's EID (###-L where # are integers and L is uppercase letter): ";
         cin >> employeeNum;
         aProductionWorker.setEmpyloyeeNum(employeeNum);
 
-        cout << "Please enter the hire date for " << name << ". (month day year seperated by spaces):";
+        cout << "Please enter the date that " << name << " was hired (month day year): ";
         cin >> hireDate.month >> hireDate.day >> hireDate.year;
         aProductionWorker.setHireDate(hireDate);
 
@@ -66,24 +66,95 @@ int main()
         cin >> shift;
         aProductionWorker.setShift(shift);
 
-        cout << "Please enter the hourly pay rate (Ex. 1222.32): ";
+        cout << "Please enter the hourly pay rate (Ex. 12.32): ";
         cin >> hourlyPayRate;
         aProductionWorker.setHourlyPayRate(hourlyPayRate);
 
        
         cout << aProductionWorker;
     }
+    else if (employeeType == 3)
+    {
+        ShiftSupervisor aShiftSupervisor;
+        double annualSalary;
+        double annualProductionBonus;
 
-    cout << "ProductionWorker" << endl;
-    ProductionWorker aProductionWorker("John Smith", "002-B", {1, 2, 2001}, 1, 15.50);
-   
-    cout << "ShiftSupervisor" << endl;
-    ShiftSupervisor aShiftSupervisor("Jane Doe", "003-C", {1, 1, 2002}, 50000.00, 1000.00);
-    cout << aShiftSupervisor << endl << endl;
+        cout << "Please enter the employee's name: ";
+        getline(cin >> ws, name);
+        aShiftSupervisor.setName(name);
 
-    cout << "TeamLeader" << endl;
-    TeamLeader aTeamLeader("Tina Simons", "004-D", { 1, 1, 2002 }, 2, 0.5, 133.22, 15, 10);
-    cout << aTeamLeader << endl << endl;
+        cout << "Please enter " << name << " 's EID (###-L where # are integers and L is uppercase letter): ";
+        cin >> employeeNum;
+        aShiftSupervisor.setEmpyloyeeNum(employeeNum);
+
+        cout << "Please enter the date that " << name << " was hired (month day year): ";
+        cin >> hireDate.month >> hireDate.day >> hireDate.year;
+        aShiftSupervisor.setHireDate(hireDate);
+
+        cout << "Please enter the annual salary that " << name << " recieves (Ex. 12222.32): ";
+        cin >> annualSalary;
+        aShiftSupervisor.setAnnualSalary(annualSalary);
+
+        cout << "Please enter the annual production bonus that " << name << " will recieves (Ex. 1222.32): ";
+        cin >> annualProductionBonus;
+        aShiftSupervisor.setAnnualProductionBonus(annualProductionBonus);
+
+
+        cout << aShiftSupervisor;
+    }
+    else if (employeeType == 4)
+    {
+        TeamLeader aTeamLeader;
+        int shift;
+        int requiredTrainingHours;
+        int attendedTrainingHours;
+        double hourlyPayRate;
+        double monthlyBonus;
+
+        cout << "Please enter the employee's name: ";
+        getline(cin >> ws, name);
+        aTeamLeader.setName(name);
+
+        cout << "Please enter " << name << " 's EID (###-L where # are integers and L is uppercase letter): ";
+        cin >> employeeNum;
+        aTeamLeader.setEmpyloyeeNum(employeeNum);
+
+        cout << "Please enter the date that " << name << " was hired (month day year): ";
+        cin >> hireDate.month >> hireDate.day >> hireDate.year;
+        aTeamLeader.setHireDate(hireDate);
+
+        cout << "Please enter what shift " << name << " will cover (1 for day or 2 for night): ";
+        cin >> shift;
+        aTeamLeader.setShift(shift);
+
+        cout << "Please enter the hourly pay rate that " << name << " will recieve (Ex. 12.32): ";
+        cin >> hourlyPayRate;
+        aTeamLeader.setHourlyPayRate(hourlyPayRate);
+
+        cout << "Please enter the monthly bonus that " << name << " will recieves (Ex. 1222.32): ";
+        cin >> monthlyBonus;
+        aTeamLeader.setMonthlyBonus(monthlyBonus);
+
+        cout << "Please enter the number of required training hour " << name << "needs to attend (Ex. 12): ";
+        cin >> requiredTrainingHours;
+        aTeamLeader.setRequiredTrainingHours(requiredTrainingHours);
+
+        cout << "Please enter the number of training hour " << name << " has attended (Ex. 12): ";
+        cin >> attendedTrainingHours;
+        aTeamLeader.setAttendedTrainingHours(attendedTrainingHours);
+
+        cout << aTeamLeader;
+        cout << endl;
+        
+        if (aTeamLeader.meetsTrainingRequirements())
+        {
+            cout << name << " has attended all their training hours.";
+        }
+        else
+        {
+            cout << name << " has NOT attended all their training hours.";
+        }
+    }
 
     cout << endl;
     return 0;
