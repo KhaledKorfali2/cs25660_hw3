@@ -78,7 +78,15 @@ std::ostream& operator<<(std::ostream& os, const TeamLeader& leader) {
     os << static_cast<const ProductionWorker&>(leader) << "\n"
         << "Monthly Bonus: " << std::fixed << std::setprecision(2) << leader.getMonthlyBonus() << "\n"
         << "Required Training Hours: " << leader.getRequiredTrainingHours() << "\n"
-        << "Training Hours Attended: " << leader.getAttendedTrainingHours();
+        << "Training Hours Attended: " << leader.getAttendedTrainingHours() << "\n";
+    if (leader.meetsTrainingRequirements())
+    {
+        os << leader.getName() << " has attended all their training hours.";
+    }
+    else
+    {
+        os << leader.getName() << " has NOT attended all their training hours.";
+    }
     return os;
 }
 
