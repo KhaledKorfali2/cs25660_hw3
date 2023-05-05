@@ -1,13 +1,16 @@
 #include<iostream>
 #include<string>
+#include<fstream>
+#include<cstdlib>
 
 #include"Employee.h"
 #include"ProductionWorker.h"
 #include"ShiftSupervisor.h"
 #include"TeamLeader.h"
 
+using namespace std;
 
-bool isPositiveInteger(std::string input) {
+bool isPositiveInteger(string input) {
 	for (char c : input) {
 		if (!isdigit(c)) {
 			return false;
@@ -20,51 +23,58 @@ bool isPositiveInteger(std::string input) {
 
 int main()
 {
-	// Universal varialbes that all objects of Employee type will use
-	std::string employeeType;
-	std::string name;
-	Date hireDate;
-	std::string employeeNum;
+	string fileName;
 
-	std::string numOfEntires;
+	// Universal varialbes that all objects of Employee type will use
+	string employeeType;
+	string name;
+	Date hireDate;
+	string employeeNum;
+
+	string numOfEntires;
 	
 	// Display Header
-	std::cout << "My Company by K. Korfali" << std::endl << std::endl;
+	cout << "My Company by K. Korfali" << endl << endl;
+	cout << "Please enter the name of your output file: ";
+	cin >> fileName;
 
+	ofstream outputFile(fileName);
+	if (!outputFile) 
+	{
+		cerr << "Error failed to open file '" << fileName << "' for writing\n";
+		return 1;
+	}
 
 	do {
 		// Display Input Prompt and Store User Choice
-		std::cout << "Please enter the number of entries you will be inputting (positive integers only): ";
-		std::cin >> numOfEntires;
+		cout << "Please enter the number of entries you will be inputting (positive integers only): ";
+		cin >> numOfEntires;
 
 		// Check if input is valid
 		if (!isPositiveInteger(numOfEntires)) {
-			std::cout << "Invalid input. Please enter a positive integer." << std::endl;
-			std::cin.clear();
-			std::cin.ignore(10000, '\n');
+			cout << "Invalid input. Please enter a positive integer." << endl;
+			cin.clear();
+			cin.ignore(10000, '\n');
 			numOfEntires = "-1";
 		}
 	} while (numOfEntires == "-1");
 
-	// Used to store the created employee objects
-	Employee* employeeArr = new Employee[std::stoi(numOfEntires)];
-
-	for (int i = 0; i < std::stoi(numOfEntires); i++)
+	for (int i = 0; i < stoi(numOfEntires); i++)
 	{
 		do {
 			system("clear");
 
 			// Display Header
-			std::cout << "My Company by K. Korfali" << std::endl << std::endl;
+			cout << "My Company by K. Korfali" << endl << endl;
 
 			// Display Input Prompt and Store User Choice
-			std::cout << "Please select what type of employee you will enter for entry number "<< i+1 <<": " << std::endl;
-			std::cout << "1) Employee" << std::endl;
-			std::cout << "2) Production Worker" << std::endl;
-			std::cout << "3) Shift Supervisor" << std::endl;
-			std::cout << "4) Team Leader" << std::endl;
-			std::cout << "Please enter 1, 2, 3, or 4 to choose: ";
-			std::cin >> employeeType;
+			cout << "Please select what type of employee you will enter for entry number "<< i+1 <<": " << endl;
+			cout << "1) Employee" << endl;
+			cout << "2) Production Worker" << endl;
+			cout << "3) Shift Supervisor" << endl;
+			cout << "4) Team Leader" << endl;
+			cout << "Please enter 1, 2, 3, or 4 to choose: ";
+			cin >> employeeType;
 		} while (employeeType != "1" && employeeType != "2" && employeeType != "3" && employeeType != "4");
 
 
@@ -74,22 +84,19 @@ int main()
 		{
 			Employee aEmployee;
 
-			std::cout << "Please enter the employee's name: ";
-			std::getline(std::cin >> std::ws, name);
+			cout << "Please enter the employee's name: ";
+			getline(cin >> ws, name);
 			aEmployee.setName(name);
 
-			std::cout << "Please enter " << name << "'s EID (###-L where # are integers and L is uppercase letter): ";
-			std::cin >> employeeNum;
+			cout << "Please enter " << name << "'s EID (###-L where # are integers and L is uppercase letter): ";
+			cin >> employeeNum;
 			aEmployee.setEmpyloyeeNum(employeeNum);
 
-			std::cout << "Please enter the date that " << name << " was hired (month day year): ";
-			std::cin >> hireDate.month >> hireDate.day >> hireDate.year;
+			cout << "Please enter the date that " << name << " was hired (month day year): ";
+			cin >> hireDate.month >> hireDate.day >> hireDate.year;
 			aEmployee.setHireDate(hireDate);
 
-			//std::cout << aEmployee;
-			
-			// Add new Employee to array
-			*(employeeArr + i) = aEmployee;
+			outputFile << aEmployee << endl;
 		}
 		else if (employeeType == "2") // If User selected Production Worker
 		{
@@ -97,31 +104,28 @@ int main()
 			int shift;
 			double hourlyPayRate;
 
-			std::cout << "Please enter the employee's name: ";
-			std::getline(std::cin >> std::ws, name);
+			cout << "Please enter the employee's name: ";
+			getline(cin >> ws, name);
 			aProductionWorker.setName(name);
 
-			std::cout << "Please enter " << name << "'s EID (###-L where # are integers and L is uppercase letter): ";
-			std::cin >> employeeNum;
+			cout << "Please enter " << name << "'s EID (###-L where # are integers and L is uppercase letter): ";
+			cin >> employeeNum;
 			aProductionWorker.setEmpyloyeeNum(employeeNum);
 
-			std::cout << "Please enter the date that " << name << " was hired (month day year): ";
-			std::cin >> hireDate.month >> hireDate.day >> hireDate.year;
+			cout << "Please enter the date that " << name << " was hired (month day year): ";
+			cin >> hireDate.month >> hireDate.day >> hireDate.year;
 			aProductionWorker.setHireDate(hireDate);
 
-			std::cout << "Please enter the shift (1 for day or 2 for night): ";
-			std::cin >> shift;
+			cout << "Please enter the shift (1 for day or 2 for night): ";
+			cin >> shift;
 			aProductionWorker.setShift(shift);
 
-			std::cout << "Please enter the hourly pay rate (Ex. 12.32): ";
-			std::cin >> hourlyPayRate;
+			cout << "Please enter the hourly pay rate (Ex. 12.32): ";
+			cin >> hourlyPayRate;
 			aProductionWorker.setHourlyPayRate(hourlyPayRate);
 
 
-			//std::cout << aProductionWorker;
-
-			// Add new Production Worker to array
-			*(employeeArr + i) = aProductionWorker;
+			outputFile << aProductionWorker << endl;
 		}
 		else if (employeeType == "3")
 		{
@@ -129,31 +133,28 @@ int main()
 			double annualSalary;
 			double annualProductionBonus;
 
-			std::cout << "Please enter the employee's name: ";
-			std::getline(std::cin >> std::ws, name);
+			cout << "Please enter the employee's name: ";
+			getline(cin >> ws, name);
 			aShiftSupervisor.setName(name);
 
-			std::cout << "Please enter " << name << "'s EID (###-L where # are integers and L is uppercase letter): ";
-			std::cin >> employeeNum;
+			cout << "Please enter " << name << "'s EID (###-L where # are integers and L is uppercase letter): ";
+			cin >> employeeNum;
 			aShiftSupervisor.setEmpyloyeeNum(employeeNum);
 
-			std::cout << "Please enter the date that " << name << " was hired (month day year): ";
-			std::cin >> hireDate.month >> hireDate.day >> hireDate.year;
+			cout << "Please enter the date that " << name << " was hired (month day year): ";
+			cin >> hireDate.month >> hireDate.day >> hireDate.year;
 			aShiftSupervisor.setHireDate(hireDate);
 
-			std::cout << "Please enter the annual salary that " << name << " recieves (Ex. 12222.32): ";
-			std::cin >> annualSalary;
+			cout << "Please enter the annual salary that " << name << " recieves (Ex. 12222.32): ";
+			cin >> annualSalary;
 			aShiftSupervisor.setAnnualSalary(annualSalary);
 
-			std::cout << "Please enter the annual production bonus that " << name << " will recieves (Ex. 1222.32): ";
-			std::cin >> annualProductionBonus;
+			cout << "Please enter the annual production bonus that " << name << " will recieves (Ex. 1222.32): ";
+			cin >> annualProductionBonus;
 			aShiftSupervisor.setAnnualProductionBonus(annualProductionBonus);
 
 
-			//std::cout << aShiftSupervisor;
-
-			// Add new Shift Supervisor to array
-			*(employeeArr + i) = aShiftSupervisor;
+			outputFile << aShiftSupervisor << endl;
 		}
 		else if (employeeType == "4")
 		{
@@ -164,62 +165,55 @@ int main()
 			double hourlyPayRate;
 			double monthlyBonus;
 
-			std::cout << "Please enter the employee's name: ";
-			std::getline(std::cin >> std::ws, name);
+			cout << "Please enter the employee's name: ";
+			getline(cin >> ws, name);
 			aTeamLeader.setName(name);
 
-			std::cout << "Please enter " << name << "'s EID (###-L where # are integers and L is uppercase letter): ";
-			std::cin >> employeeNum;
+			cout << "Please enter " << name << "'s EID (###-L where # are integers and L is uppercase letter): ";
+			cin >> employeeNum;
 			aTeamLeader.setEmpyloyeeNum(employeeNum);
 
-			std::cout << "Please enter the date that " << name << " was hired (month day year): ";
-			std::cin >> hireDate.month >> hireDate.day >> hireDate.year;
+			cout << "Please enter the date that " << name << " was hired (month day year): ";
+			cin >> hireDate.month >> hireDate.day >> hireDate.year;
 			aTeamLeader.setHireDate(hireDate);
 
-			std::cout << "Please enter what shift " << name << " will cover (1 for day or 2 for night): ";
-			std::cin >> shift;
+			cout << "Please enter what shift " << name << " will cover (1 for day or 2 for night): ";
+			cin >> shift;
 			aTeamLeader.setShift(shift);
 
-			std::cout << "Please enter the hourly pay rate that " << name << " will recieve (Ex. 12.32): ";
-			std::cin >> hourlyPayRate;
+			cout << "Please enter the hourly pay rate that " << name << " will recieve (Ex. 12.32): ";
+			cin >> hourlyPayRate;
 			aTeamLeader.setHourlyPayRate(hourlyPayRate);
 
-			std::cout << "Please enter the monthly bonus that " << name << " will recieves (Ex. 1222.32): ";
-			std::cin >> monthlyBonus;
+			cout << "Please enter the monthly bonus that " << name << " will recieves (Ex. 1222.32): ";
+			cin >> monthlyBonus;
 			aTeamLeader.setMonthlyBonus(monthlyBonus);
 
-			std::cout << "Please enter the number of required training hour " << name << "needs to attend (Ex. 12): ";
-			std::cin >> requiredTrainingHours;
+			cout << "Please enter the number of required training hour " << name << " needs to attend (Ex. 12): ";
+			cin >> requiredTrainingHours;
 			aTeamLeader.setRequiredTrainingHours(requiredTrainingHours);
 
-			std::cout << "Please enter the number of training hour " << name << " has attended (Ex. 12): ";
-			std::cin >> attendedTrainingHours;
+			cout << "Please enter the number of training hour " << name << " has attended (Ex. 12): ";
+			cin >> attendedTrainingHours;
 			aTeamLeader.setAttendedTrainingHours(attendedTrainingHours);
 
-			std::cout << aTeamLeader;
-			//std::cout << std::endl;
-
-			*(employeeArr + i) = aTeamLeader;
+			outputFile << aTeamLeader << endl;
 		}
 	}
 
+	outputFile.close();
 
 	system("clear");
 
 	// Display Header
-	std::cout << "My Company by K. Korfali" << std::endl << std::endl;
+	cout << "My Company by K. Korfali" << endl << endl;
 
-	std::cout << "Here is the information you just entered for all " << std::stoi(numOfEntires) << " employees." << std::endl;
-	for (int i = 0; i < std::stoi(numOfEntires); i++)
-	{
-		std::cout << *(employeeArr + i) << std::endl << std::endl;
-	}
-
-	// Memory Management
-	delete[] employeeArr;
+	cout << "The information you just entered for all " << stoi(numOfEntires) 
+		<< " employees have been successfully sent to " << fileName << "." << endl;
+	
 	
 
 	// Final endl
-	std::cout << std::endl;
+	cout << endl;
 	return 0;
 }

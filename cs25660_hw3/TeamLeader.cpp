@@ -74,6 +74,21 @@ bool TeamLeader::meetsTrainingRequirements() const
     return (attendedTrainingHours >= requiredTrainingHours);
 }
 
+void print(const TeamLeader& leader){
+    std::cout << static_cast<const ProductionWorker&>(leader) << "\n"
+        << "Monthly Bonus: " << std::fixed << std::setprecision(2) << leader.getMonthlyBonus() << "\n"
+        << "Required Training Hours: " << leader.getRequiredTrainingHours() << "\n"
+        << "Training Hours Attended: " << leader.getAttendedTrainingHours() << "\n";
+    if (leader.meetsTrainingRequirements())
+    {
+        std::cout << leader.getName() << " has attended all their training hours.";
+    }
+    else
+    {
+        std::cout << leader.getName() << " has NOT attended all their training hours.";
+    }
+}
+
 std::ostream& operator<<(std::ostream& os, const TeamLeader& leader) {
     os << static_cast<const ProductionWorker&>(leader) << "\n"
         << "Monthly Bonus: " << std::fixed << std::setprecision(2) << leader.getMonthlyBonus() << "\n"

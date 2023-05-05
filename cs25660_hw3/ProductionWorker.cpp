@@ -55,6 +55,8 @@ void ProductionWorker::setHourlyPayRate(double hourlyPayRate)
 }
 
 
+
+
 std::ostream& operator<<(std::ostream& os, const ProductionWorker& worker)
 {
     os << static_cast<const Employee&>(worker)

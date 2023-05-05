@@ -1,0 +1,13 @@
+Name: Fam
+EID: 123-P
+Hire: 12/34/4456
+
+Name: Khaled Korafli
+EID: 123-E
+Hire: 12/12/4532
+Shift: 2
+Hourly pay rate: 12.00
+Monthly Bonus: 12.00
+Required Training Hours: 12
+Training Hours Attended: 1
+Khaled Korafli has NOT attended all their training hours.

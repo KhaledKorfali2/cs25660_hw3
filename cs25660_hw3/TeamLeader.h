@@ -26,7 +26,7 @@ public:
 
     // Other member functions
     bool meetsTrainingRequirements() const;
-
+    void print(const TeamLeader& leader);
     friend std::ostream& operator<<(std::ostream& os, const TeamLeader& leader);
 };
 

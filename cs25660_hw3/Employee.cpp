@@ -87,7 +87,7 @@ bool Employee::isValidIDNum(std::string employeeNum)
 }
 
 
-    // Operator Overloaded Functions
+// Operator Overloaded Functions
 std::ostream& operator<<(std::ostream& os, const Employee& employee)
 {
     os << "Name: " << employee.getName() << "\n"
