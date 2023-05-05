@@ -1,26 +1,26 @@
-Name: John Doe
-EID: 123-I
-Hire: 12/12/1222
+Name: new
+EID: 333-A
+Hire: 12/43/2344
 
-Name: Jane Do
-EID: 233-E
-Hire: 12/31/1223
-Shift: 2
-Hourly pay rate: 12.53
+Name: af
+EID: 444-E
+Hire: 54/32/6544
+Shift: 1
+Hourly pay rate: 12.00
 
-Name: York New
-EID: 123-P
-Hire: 12/43/6543
-Salary: 12333.42
-Production Bonus: 1233.33
+Name: lj
+EID: 444-E
+Hire: 12/54/3223
+Salary: 123432.34
+Production Bonus: 234234.00
 
-Name: Khaled Korfali
-EID: 656-R
-Hire: 9/25/2001
-Shift: 2
-Hourly pay rate: 54.45
-Monthly Bonus: 21343.23
-Required Training Hours: 12
-Training Hours Attended: 13
-Khaled Korfali has attended all their training hours.
+Name: khael
+EID: 444-I
+Hire: 23/43/34543
+Shift: 1
+Hourly pay rate: 234.30
+Monthly Bonus: 234234.42
+Required Training Hours: 2
+Training Hours Attended: 1
+khael has NOT attended all their training hours.
 

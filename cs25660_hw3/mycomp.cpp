@@ -1,3 +1,19 @@
+//
+//	Name:		Korfali, Khaled
+//	Homework:	3
+//	Due: 		05-05-2023
+//	Course:		cs-2560-01-sp23
+//
+//	Description:
+//		This program allows the user to enter information for different types of employees, including Employee, ProductionWorker,
+//		ShiftSupervisor, and TeamLeader. The program prompts the user to enter the employee's name, ID number, hire date, and other
+//		relevant information depending on the type of employee. The program then writes this information to a file specified by the
+//		user. The program also checks that the number of entries specified by the user is a positive integer and prompts the user to
+//		re-enter if it is not. The program uses classes and inheritance to create the different types of employees, and overloads
+//		the << operator to allow the employee information to be output to the file.
+//
+//
+
 #include<iostream>
 #include<string>
 #include<fstream>
@@ -31,22 +47,28 @@ int main()
 	cout << "Please enter the name of your output file: ";
 	cin >> fileName;
 
+	// Open output file with given file name
 	ofstream outputFile(fileName);
+
+	// Check if file was opened successfully
 	if (!outputFile) 
 	{
 		cerr << "Error failed to open file '" << fileName << "' for writing." << endl;
 		return 1;
 	}
 
+	// Indicate that the file was successfully opened
 	cout << fileName << " Successfully Opened." << endl;
 
+	// Loop until valid input is entered
 	do {
 		// Display Input Prompt and Store User Choice
 		cout << "Please enter the number of entries you will be inputting (positive integers only): ";
 		cin >> numOfEntires;
 
 		// Check if input is valid
-		if (!isPositiveInteger(numOfEntires)) {
+		if (!isPositiveInteger(numOfEntires))
+		{
 			cout << "Invalid input. Please enter a positive integer." << endl;
 			cin.clear();
 			cin.ignore(10000, '\n');
@@ -54,8 +76,10 @@ int main()
 		}
 	} while (numOfEntires == "-1");
 
+	// Loop through the number of entries specified by the user
 	for (int i = 0; i < stoi(numOfEntires); i++)
 	{
+		// Loop until a valid employee type is selected
 		do {
 			system("clear");
 
@@ -77,8 +101,10 @@ int main()
 		// If user selected Employee
 		if (employeeType == "1")
 		{
+			// Create an Employee object
 			Employee aEmployee;
 
+			// Get employee information from user and store them into the employee object
 			cout << "Please enter the employee's name: ";
 			getline(cin >> ws, name);
 			aEmployee.setName(name);
@@ -93,14 +119,19 @@ int main()
 			
 			//Employee aEmployee(name, employeeNum, hireDate);
 
+			// Output emplyee information to user specified file
 			outputFile << aEmployee << endl << endl;
 		}
 		else if (employeeType == "2") // If User selected Production Worker
 		{
+			// Create an ProductionWorker object
 			ProductionWorker aProductionWorker;
+
+			// Declare variables to store values specific to ProductionWorkers
 			int shift;
 			double hourlyPayRate;
 
+			// Get ProductionWorker information from user and store them into the ProductionWorker object
 			cout << "Please enter the employee's name: ";
 			getline(cin >> ws, name);
 			aProductionWorker.setName(name);
@@ -121,15 +152,19 @@ int main()
 			cin >> hourlyPayRate;
 			aProductionWorker.setHourlyPayRate(hourlyPayRate);
 
-
+			// Output emplyee information to user specified file
 			outputFile << aProductionWorker << endl << endl;
 		}
 		else if (employeeType == "3")
 		{
+			// Create an ShiftSupervisor object
 			ShiftSupervisor aShiftSupervisor;
+
+			// Declare variables to store values specific to ShiftSupervisor
 			double annualSalary;
 			double annualProductionBonus;
 
+			// Get ShiftSupervisor information from user and store them into the ShiftSupervisor object
 			cout << "Please enter the employee's name: ";
 			getline(cin >> ws, name);
 			aShiftSupervisor.setName(name);
@@ -150,18 +185,22 @@ int main()
 			cin >> annualProductionBonus;
 			aShiftSupervisor.setAnnualProductionBonus(annualProductionBonus);
 
-
+			// Output emplyee information to user specified file
 			outputFile << aShiftSupervisor << endl << endl;
 		}
 		else if (employeeType == "4")
 		{
+			// Create an TeamLeader object
 			TeamLeader aTeamLeader;
+
+			// Declare variables to store values specific to TeamLeader
 			int shift;
 			int requiredTrainingHours;
 			int attendedTrainingHours;
 			double hourlyPayRate;
 			double monthlyBonus;
 
+			// Get TeamLeader information from user and store them into the TeamLeader object
 			cout << "Please enter the employee's name: ";
 			getline(cin >> ws, name);
 			aTeamLeader.setName(name);
@@ -194,10 +233,12 @@ int main()
 			cin >> attendedTrainingHours;
 			aTeamLeader.setAttendedTrainingHours(attendedTrainingHours);
 
+			// Output emplyee information to user specified file
 			outputFile << aTeamLeader << endl << endl;
 		}
 	}
 
+	// Close file
 	outputFile.close();
 
 	system("clear");
@@ -205,20 +246,30 @@ int main()
 	// Display Header
 	cout << "My Company by K. Korfali" << endl << endl;
 
+	// Indicate that all information was successfully sent to specified file
 	cout << "The information you just entered for all " << stoi(numOfEntires) 
 		<< " employees have been successfully sent to " << fileName << "." << endl;
 	
+	// return 0 to indicate successful execution of program
 	return 0;
 }
 
 
-
-bool isPositiveInteger(string input) {
-	for (char c : input) {
-		if (!isdigit(c)) {
+// Function to check if a string represents a positive integer
+bool isPositiveInteger(string input)
+{
+	// Loop through each character in the string
+	for (char c : input)
+	{
+		// If a non-digit character is found or if the first character is a negative sign, return false
+		if (!isdigit(c))
+		{
 			return false;
 		}
 	}
+	// convert input to integer
 	int num = stoi(input);
+
+	// If all characters are digits and the string is not empty, return true
 	return num > 0;
 }
