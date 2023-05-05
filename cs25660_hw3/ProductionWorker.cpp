@@ -59,7 +59,7 @@ void ProductionWorker::setHourlyPayRate(double hourlyPayRate)
 
 std::ostream& operator<<(std::ostream& os, const ProductionWorker& worker)
 {
-    os << static_cast<const Employee&>(worker)
+    os << static_cast<const Employee&>(worker) << "\n"
         << "Shift: " << worker.getShift() << "\n"
         << "Hourly pay rate: " << std::fixed << std::setprecision(2) << worker.getHourlyPayRate();
     return os;
