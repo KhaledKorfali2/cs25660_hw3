@@ -94,7 +94,7 @@ std::ostream& operator<<(std::ostream& os, const Employee& employee)
         << "EID: " << employee.getEmployeeNum() << "\n"
         << "Hire: " << employee.getHireDate().month << "/"
         << employee.getHireDate().day << "/"
-        << employee.getHireDate().year << std::endl;
+        << employee.getHireDate().year;
     return os;
 }
 

@@ -10,15 +10,8 @@
 
 using namespace std;
 
-bool isPositiveInteger(string input) {
-	for (char c : input) {
-		if (!isdigit(c)) {
-			return false;
-		}
-	}
-	int num = stoi(input);
-	return num > 0;
-}
+// Function Prototypes
+bool isPositiveInteger(string input);
 
 
 int main()
@@ -41,9 +34,11 @@ int main()
 	ofstream outputFile(fileName);
 	if (!outputFile) 
 	{
-		cerr << "Error failed to open file '" << fileName << "' for writing\n";
+		cerr << "Error failed to open file '" << fileName << "' for writing." << endl;
 		return 1;
 	}
+
+	cout << fileName << " Successfully Opened." << endl;
 
 	do {
 		// Display Input Prompt and Store User Choice
@@ -95,8 +90,10 @@ int main()
 			cout << "Please enter the date that " << name << " was hired (month day year): ";
 			cin >> hireDate.month >> hireDate.day >> hireDate.year;
 			aEmployee.setHireDate(hireDate);
+			
+			//Employee aEmployee(name, employeeNum, hireDate);
 
-			outputFile << aEmployee << endl;
+			outputFile << aEmployee << endl << endl;
 		}
 		else if (employeeType == "2") // If User selected Production Worker
 		{
@@ -125,7 +122,7 @@ int main()
 			aProductionWorker.setHourlyPayRate(hourlyPayRate);
 
 
-			outputFile << aProductionWorker << endl;
+			outputFile << aProductionWorker << endl << endl;
 		}
 		else if (employeeType == "3")
 		{
@@ -154,7 +151,7 @@ int main()
 			aShiftSupervisor.setAnnualProductionBonus(annualProductionBonus);
 
 
-			outputFile << aShiftSupervisor << endl;
+			outputFile << aShiftSupervisor << endl << endl;
 		}
 		else if (employeeType == "4")
 		{
@@ -197,7 +194,7 @@ int main()
 			cin >> attendedTrainingHours;
 			aTeamLeader.setAttendedTrainingHours(attendedTrainingHours);
 
-			outputFile << aTeamLeader << endl;
+			outputFile << aTeamLeader << endl << endl;
 		}
 	}
 
@@ -211,9 +208,17 @@ int main()
 	cout << "The information you just entered for all " << stoi(numOfEntires) 
 		<< " employees have been successfully sent to " << fileName << "." << endl;
 	
-	
-
-	// Final endl
-	cout << endl;
 	return 0;
+}
+
+
+
+bool isPositiveInteger(string input) {
+	for (char c : input) {
+		if (!isdigit(c)) {
+			return false;
+		}
+	}
+	int num = stoi(input);
+	return num > 0;
 }

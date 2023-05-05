@@ -1,13 +1,23 @@
-Name: Fam
-EID: 123-P
-Hire: 12/34/4456
+Name: John Doe
+EID: 123-I
+Hire: 12/12/1222
 
-Name: Khaled Korafli
-EID: 123-E
-Hire: 12/12/4532
-Shift: 2
-Hourly pay rate: 12.00
-Monthly Bonus: 12.00
+Name: Jane Do
+EID: 233-E
+Hire: 12/31/1223Shift: 2
+Hourly pay rate: 12.53
+
+Name: York New
+EID: 123-P
+Hire: 12/43/6543Salary: 12333.42
+Production Bonus: 1233.33
+
+Name: Khaled Korfali
+EID: 656-R
+Hire: 9/25/2001Shift: 2
+Hourly pay rate: 54.45
+Monthly Bonus: 21343.23
 Required Training Hours: 12
-Training Hours Attended: 1
-Khaled Korafli has NOT attended all their training hours.
+Training Hours Attended: 13
+Khaled Korfali has attended all their training hours.
+
