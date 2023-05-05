@@ -4,17 +4,20 @@ Hire: 12/12/1222
 
 Name: Jane Do
 EID: 233-E
-Hire: 12/31/1223Shift: 2
+Hire: 12/31/1223
+Shift: 2
 Hourly pay rate: 12.53
 
 Name: York New
 EID: 123-P
-Hire: 12/43/6543Salary: 12333.42
+Hire: 12/43/6543
+Salary: 12333.42
 Production Bonus: 1233.33
 
 Name: Khaled Korfali
 EID: 656-R
-Hire: 9/25/2001Shift: 2
+Hire: 9/25/2001
+Shift: 2
 Hourly pay rate: 54.45
 Monthly Bonus: 21343.23
 Required Training Hours: 12

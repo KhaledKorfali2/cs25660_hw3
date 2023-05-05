@@ -56,7 +56,7 @@ void ShiftSupervisor::setAnnualProductionBonus(double annualProductionBonus)
 
 std::ostream& operator<<(std::ostream& os, const ShiftSupervisor& supervisor)
 {
-    os << static_cast<const Employee&>(supervisor)
+    os << static_cast<const Employee&>(supervisor) << "\n"
         << "Salary: " << std::fixed << std::setprecision(2)<< supervisor.getAnnualSalary() << "\n"
         << "Production Bonus: " << std::fixed << std::setprecision(2) << supervisor.getAnnualProductionBonus();
     return os;
